@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<!-- userRegister的配置 -->
+	<bean id="userRegister" class="pack.service.UserRegisterImpl">
+		<property name="userDao" ref="userDao"/>
+	</bean>
+	<!-- adminService的配置 -->
+	<bean id="adminService" class="pack.service.AdminServiceImpl">
+		<property name="adminDao" ref="adminDao"/>	
+	</bean>	
+	
+	<!-- userService的配置 -->
+	<bean id="userService" class="pack.service.UserServiceImpl">
+		<property name="userDao" ref="userDao"/>	
+	</bean>	
+</beans>

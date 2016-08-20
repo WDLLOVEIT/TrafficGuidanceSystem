@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns="http://java.sun.com/xml/ns/javaee" 
+    xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>
+    		/WEB-INF/context/actionContext.xml,
+    		/WEB-INF/context/daoContext.xml,
+			/WEB-INF/context/dbContext.xml,
+			/WEB-INF/context/serviceContext.xml
+			/WEB-INF/context/transactionContext.xml
+		</param-value>
+  </context-param>
+  <listener>
+    <listener-class>
+			org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+  </listener>
+
+  <filter>
+    <filter-name>encodingFilter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>encodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <!-- 过滤器PreparedFilter配置，作用：1.引入自定义标签所需资源 2.设置request编码为UTF-8  -->
+  <filter>
+    <filter-name>02_PreparedFilter</filter-name>
+    <filter-class>com.fit.web.common.PreparedFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>02_PreparedFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter>
+    <filter-name>struts2</filter-name>
+    <filter-class>
+			org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
+		</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>struts2</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+   <welcome-file-list>
+    <welcome-file>/WEB-INF/pages/user_login.jsp</welcome-file>
+    
+  </welcome-file-list>
+</web-app>
