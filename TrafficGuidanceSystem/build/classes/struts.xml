@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<!-- 指定全局国际化资源文件 -->
+	<constant name="struts.custom.i18n.resources" value="overall"/>
+	<!-- 指定国际化编码所使用的字符集 -->
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<!-- 设置开发模式 -->
+	<constant name="struts.devMod" value="true"/>
+	
+	<!-- 定义不需要权限检查的Action包 -->
+	<package name="login" extends="struts-default">
+		<!-- loginPage页面Action配置 -->
+		<!-- 管理员登录处理Action -->
+		<action name="adminLoginAction" class="adminLoginAction">
+			<result name="success">/WEB-INF/pages/userManage.jsp</result>
+			<result name="usersuc">/WEB-INF/pages/mainPage.jsp</result>
+			<result name="loginPage">/WEB-INF/pages/admin_login.jsp</result>
+		</action>
+		<!-- 用户登录处理Action -->
+		<action name="userLoginAction" class="userLoginAction">
+			<result name="success">/WEB-INF/pages/mainPage.jsp</result>
+			<result name="loginPage">/WEB-INF/pages/user_login.jsp</result>
+		</action>
+		<!-- 用户注册Action配置 -->
+		<action name="userAction" class="userAction">
+			<result name="success">/WEB-INF/pages/mainPage.jsp</result>
+			<result name="loginPage">/WEB-INF/pages/user_login.jsp</result>
+		</action>
+	
+		<!-- 页面跳转 -->
+		<action name="">
+			<result>/WEB-INF/pages/user_login.jsp</result>
+		</action>
+		
+		<action name="addUserPage">
+			<result>/WEB-INF/pages/userAdd.jsp</result>
+		</action>
+		
+		<action name="adminLoginPage">
+			<result>/WEB-INF/pages/admin_login.jsp</result>
+		</action>
+		
+		<action name="arroundSearch" class="Jump">
+		    <result>/WEB-INF/pages/arround_search.jsp</result>
+		</action>
+		
+		<action name="guidence" class="Jump">
+		    <result>/WEB-INF/pages/guidence.jsp</result>
+		</action>
+		
+		<action name="roadState" class="Jump">
+		    <result>/WEB-INF/pages/road_state.jsp</result>
+		</action>
+		
+		<action name="quit" class="Jump">
+		    <result>/WEB-INF/pages/user_login.jsp</result>
+		</action>
+	</package>
+</struts>
