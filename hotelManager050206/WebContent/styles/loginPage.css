@@ -1,0 +1,23 @@
+@charset "utf-8";
+body{
+	background:rgb(230,230,230);
+}
+
+/*网站头部*/
+#header{
+	
+}
+
+/*网站主体*/
+#content{
+
+}
+
+/*登录表单*/
+#loginForm{
+	position:absolute;
+	left:500px;
+	top:200px;
+	border:2px solid gray;
+	border-radius:3px;
+}

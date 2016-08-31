@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="pack.beans">
+	<class name="QuestionMatchDegree" table="questionMatchDegree_inf">
+		<composite-id>
+			<key-property name="userId" column="user_id" type="int"/>
+			<key-property name="targetId" column="target_id" type="int"/>
+			<key-property name="paperId" column="paper_id" type="int"/>
+			<key-property name="questionId" column="question_id" type="int"/>
+		</composite-id>
+		<property name="degree" column="questionMatchDegree_degree" type="int"/>
+		<property name="valid" column="questionMatchDegree_valid" type="boolean"/>
+		<property name="flag" column="questionMatchDegree_flag" type="int"/>
+	</class>
+</hibernate-mapping>

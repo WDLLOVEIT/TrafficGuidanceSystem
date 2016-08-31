@@ -1,0 +1,61 @@
+@charset "utf-8";
+/*将每个元素的margin和padding都设为0，让页面不受浏览器默认页边距和字边距的影响*/
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form
+,filedset,legend,button,input,textarea,th,td{
+	margin:0;
+	padding:0;
+}
+/*设置body元素的字体颜色，字号大小，规范网站样式风格*/
+body,button,input,select,textarea{
+	font:12px/1.5 tahoma,arial,\5b8b\4f53;
+}
+/*设置其他元素的特定样式*/
+h1,h2,h3,h4,h5,h6{
+	font-size:100%;
+}
+address,cite,dfn,em,var{
+	font-style:normal;
+}
+code,kdb,pre,samp{
+	font-family:courier new,courier,monospace;
+}
+small{
+	font-size:12px;
+}
+ul,ol{
+	list-style:none;
+}
+a{
+	text-decoration:none;
+}
+a:hover{
+	text-decoration:underline;
+}
+sup{
+	vertical-align:text-top;
+}
+sub{
+	vertical-align:text-bottom;
+}
+legend{
+	color:#000;
+}
+fieldset,img{
+	border:0;
+}
+button,input,select,textarea{
+	font-size:100%;
+}
+table{
+	border-collapse:collapse;
+	border-spacing:0;
+}
+.clear{
+	clear:both;
+	float:none;
+	height:0;
+	overflow:hidden;
+}
+html .hide{
+	display:none;
+}

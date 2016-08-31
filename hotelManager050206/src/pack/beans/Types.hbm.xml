@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="pack.beans">
+	<class name="Types" table="types_inf">
+		<id name="id" column="types_id">
+			<generator class="assigned"/>
+		</id>
+		<property name="name" type="string" column="types_name"/>
+		<property name="valid" type="boolean" column="types_valid"/>
+		<property name="flag" type="int" column="types_flag"/>
+	</class>
+</hibernate-mapping>

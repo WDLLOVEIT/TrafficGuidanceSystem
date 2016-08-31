@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="pack.beans">
+	<class name="Profession" table="profession_inf">
+		<id name="id" column="profession_id">
+			<generator class="assigned"/>
+		</id>
+		<property name="name" type="string" column="profession_name"/>
+		<property name="reputation" type="int" column="profession_reputation"/>
+		<property name="valid" type="boolean" column="profession_valid"/>
+		<property name="flag" type="int" column="profession_flag"/>
+	</class>
+</hibernate-mapping>

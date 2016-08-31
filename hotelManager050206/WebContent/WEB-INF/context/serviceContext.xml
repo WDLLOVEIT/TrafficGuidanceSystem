@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<!-- AdminService的配置 -->
+	<bean id="loginService" class="pack.service.impl.LoginServiceImpl">
+		<property name="adminDao" ref="adminDao"/>
+	</bean>
+	<!-- SortService的配置 -->
+	<bean id="sortService" class="pack.service.impl.SortServiceImpl">
+		<property name="bookDao" ref="bookDao"/>
+		<property name="roomDao" ref="roomDao"/>
+		<property name="ioDao" ref="ioDao"/>
+	</bean>	
+	<!-- SaveService的配置 -->
+	<bean id="saveService" class="pack.service.impl.SaveServiceImpl" autowire="byName"/>
+	<!-- GetService的配置 -->
+	<bean id="getService" class="pack.service.impl.GetServiceImpl" autowire="byName"/>
+</beans>

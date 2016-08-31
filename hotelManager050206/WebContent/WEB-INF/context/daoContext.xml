@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<!-- AdminDao配置 -->
+	<bean id="adminDao" class="pack.dao.impl.AdminDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<!-- RoomDao配置 -->
+	<bean id="roomDao" class="pack.dao.impl.RoomDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<!-- BookDao配置 -->
+	<bean id="bookDao" class="pack.dao.impl.BookDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<!-- IoDao配置 -->
+	<bean id="ioDao" class="pack.dao.impl.IoDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<!-- TypeDao配置 -->
+	<bean id="typeDao" class="pack.dao.impl.TypeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<!-- CustomerDao配置 -->
+	<bean id="customerDao" class="pack.dao.impl.CustomerDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<!-- ReportDao配置 -->
+	<bean id="reportDao" class="pack.dao.impl.ReportDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+</beans>

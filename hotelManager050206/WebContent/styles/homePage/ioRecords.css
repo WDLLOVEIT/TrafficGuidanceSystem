@@ -1,0 +1,115 @@
+@charset "utf-8";
+body{
+	background:rgb(230,230,230);
+}
+hr{
+	background:rgb(10,160,220);
+	color:rgb(10,160,220);
+	height:5px;
+	width:120%;
+}
+#header{
+	width:100%;
+	min-width:1000px;
+	height:120px;
+	background:#0B84C9;
+}
+
+#header .title{
+	color:white;
+	font-size:3em;
+	font-weight:bolder;
+	font-family:"隶书";
+	position:absolute;
+	left:40%;
+	top:40px;
+}
+
+#content{
+	width:100%;
+	min-width:1000px;
+	margin:auto 0;
+}
+
+#content .show{
+	float:left;
+	margin-left:-5%;
+	width:70%;
+	height:600px;
+	
+}
+
+#book_query{
+	position:relative;
+	left:200px;
+	top:20px;
+}
+
+#book_form span{
+	font-size:1.2em;
+	font-weight:bolder;
+	font-family:"楷体";
+	
+	color:rgb(10,160,220);
+}
+
+#content .show .module{
+	margin-top:20px;
+}
+.tablelist{
+    border: 1px solid #88C1DB;  /*/ 表格边框 /*/
+    border-collapse: collapse;  /*/边框重叠/*/
+   /*background-color:##FFFFFF;*/
+    margin-top: 30px;
+    position:relative;
+    left:100px;	
+    font-size:0.9em;
+}
+/*/表格行名/*/
+.tablelist th{
+    border: 1px solid #88C1DB;  /*/ 边框 /*/
+    background-color: #0B84C9;
+    color: #FFF;
+    font-family:"楷体";
+    font-weight: bold;
+    padding: 4px 12px 4px 12px;
+    text-align: center;
+    left:200px;
+}
+.tablelist td{
+    border: 1px solid #88C1DB;  /*/ 边框 /*/
+    padding: 4px 10px 4px 10px;
+}
+.tablelist tr:hover, .tablelist tr:active, .tablelist tr:focus{
+    background-color: #FFF;      /* 变色 */
+}
+#room_floor{
+	float:left;
+	height:700px;
+}
+#room_floor div{
+	margin-top:20px;
+	background:rgb(10,160,220);
+	border-radius:5px;
+	cursor:pointer;
+}
+#room_floor div span{
+	font-size:2em;
+	font-weight:bolder;
+	font-family:"楷体";
+	color:white;
+}
+
+#content .room{
+	background:rgb(10,160,220);
+	margin-left:100px;
+	width:200px;
+	margin-top:20px;
+	font-size:1.2em;
+	color:white;
+	font-weight:bolder;
+	font-family:"楷体";
+	cursor:pointer;
+	border-radius:5px;
+	float:left;
+}
