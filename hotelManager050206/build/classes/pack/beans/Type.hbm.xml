@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="pack.beans">
+	 <class name="Type" table="type">
+		<id name="id" column="type_id">
+			<generator class="assigned"/>
+		</id>
+		<property name="name" 
+			type="string" column="type_name"/>
+		<property name="price" 
+			type="int" column="type_price"/>
+	</class>
+</hibernate-mapping>

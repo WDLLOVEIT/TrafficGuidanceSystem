@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<!-- 指定全局国际化资源文件 -->
+	<constant name="struts.custom.i18n.resources" value="overall"/>
+	<!-- 指定国际化编码所使用的字符集 -->
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<!-- 设置开发模式 -->
+	<constant name="struts.devMod" value="true"/>
+	
+	<!-- 定义不需要权限检查的Action包 -->
+	<package name="login" extends="struts-default">
+		<!-- loginPage页面Action配置 -->
+		<!-- 登录处理Action -->
+		<action name="loginPro" class="loginAction">
+			<result name="book">/WEB-INF/content/book.jsp</result>
+			<result name="loginPage">/WEB-INF/content/loginPage.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 定义需要权限检查的Action包 -->
+	<package name="check" extends="struts-default">
+		<!-- 默认拦截器的定义 -->
+		<interceptors>
+			<!-- 定义权限检查拦截器 -->
+			<interceptor name="loginCheck" 
+				class="pack.interceptor.LoginCheckInterceptor"/>
+			<!-- 定义一个包含权限检查的拦截器栈 -->
+			<interceptor-stack name="mydefault">
+				<!-- 定义拦截器栈包含default-stack拦截器栈 -->
+				<interceptor-ref name="defaultStack"/>
+				<!-- 定义拦截器栈包含loginCheck拦截器 -->
+				<interceptor-ref name="loginCheck"/>
+			</interceptor-stack>
+		</interceptors>
+		<!-- 配置自定义默认拦截器 -->
+		<default-interceptor-ref name="mydefault"/>
+		<!-- 定义全局Result -->
+		<global-results>
+			<!-- 当返回login视图名时，转入loginAction页面 -->
+			<result name="login">/WEB-INF/content/loginPage.jsp</result>
+		</global-results>
+		
+		<!-- book页面Action配置 -->
+		<!-- 预约查询Action -->
+		<action name="bookPro" class="bookAction">
+			<result name="book">/WEB-INF/content/book.jsp</result>
+		</action>
+		<!-- 预约登记Action -->
+		<action name="bookRegistPro" class="bookAction" method="regist">
+			<result name="book">/WEB-INF/content/book.jsp</result>
+		</action>
+		<!-- 入住查询Action -->
+		<action name="checkInPro" class="checkInAction">
+			<result name="checkIn">/WEB-INF/content/checkIn.jsp</result>
+		</action>
+		<!-- 直接入住登记Action -->
+		<action name="checkInRegistPro" class="checkInAction" method="registCheckIn">
+			<result name="checkIn">/WEB-INF/content/checkIn.jsp</result>
+		</action>
+		<!-- 退房操作Action -->
+		<action name="checkOutPro" class="checkOutAction">
+			<result name="checkOut">/WEB-INF/content/checkOut.jsp</result>
+		</action>
+		<!-- 预约入住Action -->
+		<action name="bookInPro" class="checkInAction" method="bookIn">
+			<result name="bookIn">/WEB-INF/content/bookIn.jsp</result>
+		</action>
+		<!-- 预约入住查询Action -->
+		<action name="bookQueryPro" class="bookQueryAction">
+			<result name="bookIn">/WEB-INF/content/bookIn.jsp</result>
+		</action>
+		<!-- 预约入住操作Action -->
+		<action name="bookOptionPro" class="bookOptionAction">
+			<result name="bookIn">/WEB-INF/content/bookIn.jsp</result>
+		</action>
+		<!-- 入住退房查询 -->
+		<action name="ioQueryPro" class="ioQueryAction">
+			<result name="checkOut">/WEB-INF/content/checkOut.jsp</result>
+		</action>
+		<!-- 入住退房操作 -->
+		<action name="ioOptionPro" class="ioOptionAction">
+			<result name="checkOut">/WEB-INF/content/checkOut.jsp</result>
+		</action>
+		<!-- 客户信息Action -->
+		<action name="customerPro" class="customerAction">
+			<result name="customerInf">/WEB-INF/content/customerInf.jsp</result>
+		</action>
+		<!-- 自动填写表单Action -->
+		<action name="autoCompletePro" class="autoCompleteAction">
+			<result name="complete" type="stream">
+				<!-- 指定stream生成的响应数据类型 -->
+				<param name="contentType">text/html</param>
+				<!-- 指定由getResult()方法返回输出结果的InputStream -->
+				<param name="inputName">result</param>
+			</result>
+		</action>
+		<!-- 记录查询Action -->
+		<action name="recordsQueryPro" class="recordsQueryAction">
+			<result name="bookRecords">/WEB-INF/content/bookRecords.jsp</result>
+			<result name="ioRecords">/WEB-INF/content/ioRecords.jsp</result>
+		</action>
+		<!-- 报表Action -->
+		<action name="reportPro" class="reportAction">
+			<result name="report">/WEB-INF/content/report.jsp</result>
+		</action>
+		
+		<!-- 采用Spring的显式配置 -->
+		<!-- 默认Action -->
+		<action name="*">
+			<result>/WEB-INF/content/{1}.jsp</result>
+		</action>
+	</package>
+</struts>
