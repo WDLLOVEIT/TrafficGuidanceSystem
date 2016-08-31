@@ -13,7 +13,7 @@
 		<!-- 指定连接数据库的用户名 -->
 		<property name="user" value="root"/>
 		<!-- 指定连接数据库的密码 -->
-		<property name="password" value="root"/>
+		<property name="password" value="11fit"/>
 		<!-- 指定数据库连接池的最大连接数 -->
 		<property name="maxPoolSize" value="40"/>
 		<!-- 指定数据库连接池的最小连接数-->

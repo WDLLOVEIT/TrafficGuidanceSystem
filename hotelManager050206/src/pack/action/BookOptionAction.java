@@ -70,14 +70,12 @@ public class BookOptionAction
 			Io io=new Io(book.getCustomerId(),book.getRoomId(),new Date(),
 					last);
 			saveService.saveIo(io);
-			ctx.put("tip","入住成功！");
 		}//取消操作
 		else{
 			book.setFlag(2);
-			ctx.put("tip","取消成功！");
 		}
 		saveService.saveBook(book);
-		
+		ctx.put("tip","操作成功");
 		//更新预约表
 		List<Book> books=getService.getCrudeBooks();
 		ctx.put("books",books);

@@ -76,15 +76,14 @@ public class IoOptionAction
 		if(option==0){
 			io.setState(true);
 			io.setOuttime(new Date());
+			
 			saveService.saveIo(io);
-			ctx.put("tip","退房成功！");
 		}//续住操作
 		else{
 			io.setLast(io.getLast()+value*24);
-			ctx.put("tip","续住成功！");
 		}
 		saveService.saveIo(io);
-		
+		ctx.put("tip","操作成功");
 		//更新预约表
 		List<Io> ios=getService.getCurrentIos();
 		ctx.put("ios",ios);

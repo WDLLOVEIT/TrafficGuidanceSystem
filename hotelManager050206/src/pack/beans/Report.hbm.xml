@@ -14,7 +14,7 @@
 			type="int" column="report_ordersum"/>
 		
 		<property name="checkin"
-			type="int" column="report_checkin"/>
+			type="int" column="report_chechin"/>
 		
 		<property name="income"
 			type="int" column="report_income"/>		

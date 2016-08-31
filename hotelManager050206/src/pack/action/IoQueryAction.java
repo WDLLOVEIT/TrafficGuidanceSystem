@@ -56,16 +56,10 @@ public class IoQueryAction
 		List<Io> ios=new ArrayList<Io>();
 		//根据预约号获取预约记录
 		if(condition==1){
-			Io io=getService.getCurrentIoById(Integer.parseInt(value));
-			if(io!=null){
-				ios.add(io);
-			}
+			ios.add(getService.getCurrentIoById(Integer.parseInt(value)));
 		}//根据客户身份证号获取预约记录
 		else if(condition==2){
-			Io io=getService.getCurrentIoByIc(value);
-			if(io!=null){
-				ios.add(io);
-			}
+			ios.add(getService.getCurrentIoByIc(value));
 		}
 		ctx.put("ios",ios);
 		

@@ -56,10 +56,7 @@ public class BookQueryAction
 		List<Book> books=new ArrayList<Book>();
 		//根据预约号获取预约记录
 		if(condition==1){
-			Book book=getService.getCrudeBook(Integer.parseInt(value));
-			if(book!=null){
-				books.add(book);
-			}
+			books.add(getService.getCrudeBook(Integer.parseInt(value)));
 		}else if(condition==2){
 			books=getService.getCrudeBooksByIc(value);
 		}

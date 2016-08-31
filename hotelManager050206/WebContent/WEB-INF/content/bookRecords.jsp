@@ -36,7 +36,7 @@
 			   <span>请选择查询条件:<select name="condition" id="query_condition">
 			    <option value='1' selected>预约号 </option>
 			    <option value='2'>客户姓名 </option>
-			    <option value='3'>客户身份证号</option>
+			     <option value='3'>客户身份证号</option>
 			    <option value='4'>客户手机号</option>
 			    <option value='5'>预约时间</option>
 			    <option value='6'>预约入住时间 </option>

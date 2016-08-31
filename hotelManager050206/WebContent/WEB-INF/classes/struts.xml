@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<!-- 指定全局国际化资源文件 -->
+	<constant name="struts.custom.i18n.resources" value="overall"/>
+	<!-- 指定国际化编码所使用的字符集 -->
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<!-- 设置开发模式 -->
+	<constant name="struts.devMod" value="true"/>
+	
+	<!-- 定义不需要权限检查的Action包 -->
+	<package name="login" extends="struts-default">
+		<!-- loginPage页面Action配置 -->
+		<!-- 注册处理Action -->
+		<action name="registPro" class="registAction">
+			<result name="loginPage">/WEB-INF/content/login.jsp</result>
+		</action>
+		<action name="checkPro" class="registAction"
+			method="check">
+			<result name="check" type="stream">
+				<!-- 指定stream生成的响应数据类型 -->
+				<param name="contentType">text/html</param>
+				<!-- 指定由getResult()方法返回输出结果的InputStream -->
+				<param name="inputName">result</param>
+			</result>	
+		</action>
+		<!-- 登录处理Action -->
+		<action name="loginPro" class="loginAction">
+			<result name="success">/WEB-INF/content/space/individualSpace.jsp</result>
+			<result name="error">/WEB-INF/content/login.jsp</result>
+		</action>
+		
+		<!-- introduction页面的Action配置 -->
+		<action name="introductionPagePro" class="introductionPageAction">
+			<result name="introductionPage">/WEB-INF/content/introductionPage/introductionPage.jsp</result>
+		</action> 
+		
+		<!-- help帮助页面Action配置 -->
+		<!-- 帮助页面Action -->
+		<action name="helpPagePro" class="helpPageAction">
+			<result name="success">/WEB-INF/content/help/helpPage.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 定义需要权限检查的Action包 -->
+	<package name="check" extends="struts-default">
+		<!-- 默认拦截器的定义 -->
+		<interceptors>
+			<!-- 定义权限检查拦截器 -->
+			<interceptor name="loginCheck" 
+				class="pack.interceptor.LoginCheckInterceptor"/>
+			<!-- 定义一个包含权限检查的拦截器栈 -->
+			<interceptor-stack name="mydefault">
+				<!-- 定义拦截器栈包含default-stack拦截器栈 -->
+				<interceptor-ref name="defaultStack"/>
+				<!-- 定义拦截器栈包含loginCheck拦截器 -->
+				<interceptor-ref name="loginCheck"/>
+			</interceptor-stack>
+		</interceptors>
+		<!-- 配置自定义默认拦截器 -->
+		<default-interceptor-ref name="mydefault"/>
+		<!-- 定义全局Result -->
+		<global-results>
+			<!-- 当返回login视图名时，转入loginAction页面 -->
+			<result name="login">/WEB-INF/content/login.jsp</result>
+		</global-results>
+		
+		<!-- 采用Spring的显式配置 -->
+		<!-- mainPage页面Action配置 -->
+		<!-- 主页Action -->
+		<action name="mainPagePro" class="mainPageAction">
+			<!-- 返回主页面，用于判断主页面选项卡选项 -->
+			<result name="mainPage">
+				/WEB-INF/content/mainPage/mainPage.jsp
+			</result>
+		</action>
+		<!-- 注销用户Action -->
+		<action name="exitPro" class="mainPageAction"
+			method="exit">
+			<!-- 退出登录 -->
+			<result name="login">
+				/WEB-INF/content/login.jsp
+			</result>
+		</action>
+		<!-- 基本要求Action -->
+		<action name="targetPaperPro" class="targetPaperAction">
+			<result name="mainPage" type="stream">
+				<!-- 指定stream生成的响应数据类型 -->
+				<param name="contentType">text/html</param>
+				<!-- 指定由getResult()方法返回输出结果的InputStream -->
+				<param name="inputName">result</param>
+			</result>
+		</action>
+		<!-- 问卷处理Action -->
+		<action name="paperPresentPro" class="paperPresentAction">
+			<result name="success">/WEB-INF/content/mainPage/mainPage.jsp</result>
+			<!-- 自我评价问卷 -->
+			<result name="evaluationPaper">
+				/WEB-INF/content/mainPage/paper/evaluationPaper.jsp
+			</result>
+			<!-- 生活习惯问卷表 -->
+			<result name="habitsPaper">
+				/WEB-INF/content/mainPage/paper/habitsPaper.jsp
+			</result>
+			<!-- 兴趣爱好问卷表 -->
+			<result name="interestsPaper">
+				/WEB-INF/content/mainPage/paper/interestsPaper.jsp
+			</result>
+			<!-- 价值观问卷表 -->
+			<result name="worthPaper">
+				/WEB-INF/content/mainPage/paper/worthPaper.jsp
+			</result>
+			<!-- 性格自测量表 -->
+			<result name="naturePaper">
+				/WEB-INF/content/mainPage/paper/naturePaper.jsp
+			</result>
+			<!-- 婚恋成长性表 -->
+			<result name="marriageGrowPaper">
+				/WEB-INF/content/mainPage/paper/marriageGrowPaper.jsp
+			</result>
+		</action>
+		<!-- 答案表处理Action -->
+		<action name="answerOperatePro" class="answerOperateAction">
+			<result name="success" type="stream">
+				<!-- 指定stream生成的响应数据类型 -->
+				<param name="contentType">text/html</param>
+				<!-- 指定由getResult()方法返回输出结果的InputStream -->
+				<param name="inputName">result</param>
+			</result>
+		</action>
+		
+		<!-- space页面Action配置 -->
+		<!-- 空间登录Action -->
+		<action name="spacePro" class="spaceAction">
+			<result name="space">/WEB-INF/content/space/individualSpace.jsp</result>
+			<result name="data">/WEB-INF/content/space/individualData.jsp</result>
+			<result name="other">/WEB-INF/content/space/individualSpace.jsp</result>
+		</action>
+		<!-- 头像上传Action -->
+		<action name="headPhotoPro" class="headPhotoAction">
+			<!-- 配置fileUpload的拦截器 -->
+			<interceptor-ref name="fileUpload">
+				<!-- 配置允许上传的文件类型 -->
+				<param name="allowedTypes">image/png,image/gif,
+					image/jpeg</param>
+				<!-- 配置允许上传的文件大小 -->
+				<param name="maximumSize">200000</param>
+			</interceptor-ref>
+			<interceptor-ref name="loginCheck"/>
+			<!-- 配置自定义默认拦截器 -->
+			<interceptor-ref name="mydefault"/>
+			<!-- 动态设置Action属性值 -->
+			<param name="savePath">/headPhotoes</param>
+			<result name="success">/WEB-INF/content/space/individualSpace.jsp</result>
+			<result name="input">/WEB-INF/content/space/individualSpace.jsp</result>
+		</action>
+		<!-- 恋爱宣言Action -->
+		<action name="declarationPro" class="spaceAction"
+			method="saveDeclaration">
+			<result name="success" type="stream">
+				<!-- 指定stream生成的响应数据类型 -->
+				<param name="contentType">text/html</param>
+				<!-- 指定由getResult()方法返回输出结果的InputStream -->
+				<param name="inputName">result</param>
+			</result>
+		</action>
+		<!-- 用户更新Action -->
+		<action name="updateUserPro" class="updateUserAction">
+			<result name="success">/WEB-INF/content/space/individualData.jsp</result>
+		</action>
+		<!-- 查找用户Action -->
+		<action name="findUserPro" class="findUserAction">
+			<result name="success">/WEB-INF/content/space/find.jsp</result>
+			<result name="error">/WEB-INF/content/login.jsp</result>
+		</action>
+		<!-- 查找用户分页Action -->
+		<action name="findUserByPagePro" class="findUserAction"
+			method="turnToPages">
+			<result name="success">/WEB-INF/content/space/find.jsp</result>
+		</action>
+		
+		<!-- 默认Action -->
+		<action name="*">
+			<result>/WEB-INF/content/{1}.jsp</result>
+		</action>
+	</package>
+</struts>

@@ -9,7 +9,7 @@
 	<!-- 查询选项 -->
 	<div id="checkIn_query">
 		<s:form id="checkIn_form" action="checkInPro">
-			<span>入住时长（小时）：</span><input type="text" name="last" id="checkIn_last"/>
+			<span>入住时长：</span><input type="text" name="last" id="checkIn_last"/>
 			<s:hidden value="%{#checkIn_last}" id="save_last"/>
 		</s:form>
 	</div>

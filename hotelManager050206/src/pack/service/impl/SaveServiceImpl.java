@@ -82,7 +82,6 @@ public class SaveServiceImpl
 		if(report==null){
 			report=new Report(new Date());
 			reportDao.saveOrUpdate(report);
-			report=reportDao.getByDate(new Date());
 		}
 		report.setOrdersum(report.getOrdersum()+1);
 		saveReport(report);
@@ -95,7 +94,6 @@ public class SaveServiceImpl
 		if(report==null){
 			report=new Report(new Date());
 			reportDao.saveOrUpdate(report);
-			report=reportDao.getByDate(new Date());
 		}
 		report.setCheckin(report.getCheckin()+1);
 		Room room=roomDao.getById(io.getRoomId());

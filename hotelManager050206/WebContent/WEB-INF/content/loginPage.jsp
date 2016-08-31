@@ -10,13 +10,12 @@
         <meta name="description" content="Login and Registration Form with HTML5 and CSS3" />
         <meta name="keywords" content="html5, css3, form, switch, animation, :target, pseudo-class" />
         <meta name="author" content="Codrops" />
-<link rel="shortcut icon" href="../favicon.ico"> 
-<link rel="stylesheet" type="text/css" href="styles/demo.css" />
-<link rel="stylesheet" type="text/css" href="styles/style2.css" />
-<link rel="stylesheet" type="text/css" href="styles/animate-custom.css" />
-<script src="scripts/jquery.js" type="text/javascript"></script>
-<script src="scripts/jquery-ui.js" type="text/javascript"></script>
-<script src="scripts/loginPage.js" type="text/javascript"></script>
+        <link rel="shortcut icon" href="../favicon.ico"> 
+        <link rel="stylesheet" type="text/css" href="styles/demo.css" />
+        <link rel="stylesheet" type="text/css" href="styles/style2.css" />
+		<link rel="stylesheet" type="text/css" href="styles/animate-custom.css" />
+		<script src="../scripts/jquery.js" type="text/javascript"></script>
+<script src="../scripts/jquery-ui.js" type="text/javascript"></script>
     </head>
     <body>
        
@@ -33,9 +32,8 @@
                     <a class="hiddenanchor" id="tologin"></a>
                     <div id="wrapper">
                         <div id="login" class="animate form">
-                            <form  action="loginPro" autocomplete="on" method="post"> 
+                            <form  action="loginPro" autocomplete="on"> 
                                 <h1>管理员登录</h1> 
-                                <p class="tip"><s:property value="#tip"/></p>
                                 <p> 
                                     <label for="userName" class="uname"> 用户名: </label>
                                     <input id="userName" name="userName" type="text"/>

@@ -20,70 +20,9 @@
 		if(save_leave!=undefined){
 			$("#book_leave").val(save_leave);
 		}
-		var flag=true;
-		$("#book_start").blur(function(){
-			var start_date=$(this).val();
-			var s=start_date.split("-");
-			var today=new Date();
-			var f=true;
-			if(s[0]<today.getFullYear()){
-				f=false;
-			}else{
-				if(s[1]<today.getMonth()+1){
-					f=false;
-				}else{
-					if(s[2]<today.getDay()){
-						f=false;
-					}
-				}
-			}
-			if(f==false){
-				$("#book_start").val(today.getFullYear()+"-"+(today.getMonth()+1)+"-"+today.getDate());
-			}
-			f=true;
-			start_date=$(this).val();
-			s=start_date.split("-");
-			var leave_date=$("#book_leave").val();
-			var l=leave_date.split("-");
-			if(l[0]<s[0]){
-				f=false;
-			}else{
-				if(l[1]<s[1]){
-					f=false;
-				}else{
-					if(l[2]<s[2]){
-						f=false;
-					}
-				}
-			}
-			if(f==false){
-				$("#book_leave").val(s[0]+"-"+s[1]+"-"+(parseInt(s[2])+1));
-			}
-			$("#book_form").trigger("submit");
-		});
-		$("#book_leave").blur(function(){
-			var leave_date=$(this).val();
-			var l=leave_date.split("-");
-			var start_date=$("#book_start").val();
-			var s=start_date.split("-");
-			if(l[0]<s[0]){
-				f=false;
-			}else{
-				if(l[1]<s[1]){
-					f=false;
-				}else{
-					if(l[2]<s[2]){
-						f=false;
-					}
-				}
-			}
-			if(f==false){
-				$("#book_leave").val(s[0]+"-"+s[1]+"-"+(parseInt(s[2])+1));
-			}
-			$("#book_form").trigger("submit");
-		});
 		$("#book_form input").each(function(){
 			$(this).change(function(){
+				var flag=true;
 				$("#book_start,#book_leave").each(function(){
 					if($(this).val()==""){
 						flag=false;
@@ -91,29 +30,10 @@
 					}
 				});
 				if(flag){
-					var leave_date=$(this).val();
-					var l=leave_date.split("-");
-					var start_date=$("#book_start").val();
-					var s=start_date.split("-");
-					if(l[0]<s[0]){
-						f=false;
-					}else{
-						if(l[1]<s[1]){
-							f=false;
-						}else{
-							if(l[2]<s[2]){
-								f=false;
-							}
-						}
-					}
-					if(f==false){
-						$("#book_leave").val(s[0]+"-"+s[1]+"-"+(parseInt(s[2])+1));
-					}
 					$("#book_form").trigger("submit");
 				}
 			});
 		});
-		
 		//楼层选择按钮
 		$("#room_floor span").mouseenter(function(){
 			if(!$(this).hasClass("rf_selected")){
@@ -208,6 +128,7 @@
 						}else{
 							$("#name").val("");
 							$("#phone").val("");
+							$("#sex").val("");
 							$(".tip").remove();
 						}
 					}

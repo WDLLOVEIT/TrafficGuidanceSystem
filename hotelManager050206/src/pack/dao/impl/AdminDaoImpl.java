@@ -18,5 +18,5 @@ public class AdminDaoImpl
 		}else{
 			return null;
 		}
-	}
+	};
 }

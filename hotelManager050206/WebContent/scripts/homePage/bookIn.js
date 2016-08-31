@@ -1,7 +1,7 @@
 $(function(){
 	$(window).load(function(){
 		//入住、取消操作
-		if($("#tip").val()!=""){
+		if($("#tip").val()=="操作成功"){
 			alert($("#tip").val());
 		}
 		

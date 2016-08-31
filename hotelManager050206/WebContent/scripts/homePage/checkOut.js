@@ -1,10 +1,5 @@
 $(function(){
 	$(window).load(function(){
-		//操作成功弹窗
-		if($("#tip").val()!=""){
-			alert($("#tip").val());
-		}
-		
 		//设置左侧选项栏默认选项
 		var $module0=$("#content .leftFrame .module:eq(1)");
 		$module0.addClass("frame_selected").css({background:"rgb(20,120,170)"});
