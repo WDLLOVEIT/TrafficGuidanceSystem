@@ -1,4 +1,4 @@
-#by doudou
+
 
 CREATE TABLE `admin` (
   `adminId` int(11) NOT NULL AUTO_INCREMENT,
